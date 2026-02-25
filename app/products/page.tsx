@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -10,7 +10,7 @@ import Link from "next/link";
 import { products, categories } from "@/lib/products";
 import { useSearchParams } from "next/navigation";
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("category");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
@@ -29,9 +29,7 @@ export default function ProductsPage() {
     : products;
 
   return (
-    <main className="w-full">
-      <Navbar />
-
+    <>
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
@@ -135,7 +133,27 @@ export default function ProductsPage() {
           )}
         </div>
       </section>
+    </>
+  );
+}
 
+export default function ProductsPage() {
+  return (
+    <main className="w-full">
+      <Navbar />
+      <Suspense
+        fallback={
+          <section className="py-12 md:py-16 bg-muted/30">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <p className="text-lg text-muted-foreground">
+                Loading products...
+              </p>
+            </div>
+          </section>
+        }
+      >
+        <ProductsContent />
+      </Suspense>
       <Footer />
     </main>
   );
