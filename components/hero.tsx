@@ -63,26 +63,34 @@ export default function Hero() {
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 text-balance">
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 text-balance animate-fade-in">
           Feeding Innovation.
           <br />
           Sustaining Growth.
         </h1>
-        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl text-balance">
+        <p
+          className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl text-balance animate-slide-up"
+          style={{ animationDelay: "300ms" }}
+        >
           Your trusted partner for quality animal feeder equipment.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div
+          className="flex flex-col sm:flex-row gap-4 animate-slide-up"
+          style={{ animationDelay: "600ms" }}
+        >
           <Link href="/products">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg cursor-pointer">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-110 transition-all duration-300 px-8 py-6 text-lg cursor-pointer shadow-lg hover:shadow-2xl">
               Explore Products
             </Button>
           </Link>
-          <Button
-            variant="outline"
-            className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg bg-transparent"
-          >
-            Contact Us
-          </Button>
+          <Link href="/contact">
+            <Button
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary hover:scale-110 transition-all duration-300 px-8 py-6 text-lg bg-transparent cursor-pointer shadow-lg hover:shadow-2xl"
+            >
+              Contact Us
+            </Button>
+          </Link>
         </div>
       </div>
 

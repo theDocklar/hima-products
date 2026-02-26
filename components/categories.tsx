@@ -38,8 +38,8 @@ const iconMap = {
 export default function Categories() {
   return (
     <section id="categories" className="py-16 md:py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Equipment Categories
           </h2>
@@ -50,7 +50,7 @@ export default function Categories() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {categories.map((category) => {
+          {categories.map((category, index) => {
             const IconComponent =
               iconMap[category.icon as keyof typeof iconMap];
 
@@ -59,15 +59,18 @@ export default function Categories() {
                 key={category.id}
                 href={`/products?category=${encodeURIComponent(category.name)}`}
               >
-                <Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                <Card
+                  className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group hover:-translate-y-2 animate-slide-up border-0"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
                   <div className="relative h-48 overflow-hidden bg-muted">
                     <Image
                       src={category.image || "/placeholder.svg"}
                       alt={category.name}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="object-cover group-hover:scale-110 transition-all duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/50 transition-colors" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500" />
                   </div>
                   <div className="p-6 flex flex-col gap-3">
                     <div className="flex items-center gap-3">
