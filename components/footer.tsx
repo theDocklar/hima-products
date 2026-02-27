@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company */}
           <div>
-            <h3 className="font-bold text-xl mb-4 text-white">FeedEquip</h3>
+            <h3 className="font-bold text-xl mb-4 text-white">Hima Products</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Leading distributor and manufacturer of quality animal feeder
               equipment since 1995.
