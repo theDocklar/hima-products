@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from "lucide-react"
+import Link from "next/link";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -10,7 +10,8 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-xl mb-4 text-white">FeedEquip</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Leading distributor and manufacturer of quality animal feeder equipment since 1995.
+              Leading distributor and manufacturer of quality animal feeder
+              equipment since 1995.
             </p>
           </div>
 
@@ -19,22 +20,34 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white transition">
+                <Link
+                  href="/"
+                  className="text-gray-300 hover:text-white transition"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="#about" className="text-gray-300 hover:text-white transition">
+                <Link
+                  href="/#about"
+                  className="text-gray-300 hover:text-white transition"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#products" className="text-gray-300 hover:text-white transition">
+                <Link
+                  href="/#products"
+                  className="text-gray-300 hover:text-white transition"
+                >
                   Products
                 </Link>
               </li>
               <li>
-                <Link href="#categories" className="text-gray-300 hover:text-white transition">
+                <Link
+                  href="/#categories"
+                  className="text-gray-300 hover:text-white transition"
+                >
                   Categories
                 </Link>
               </li>
@@ -64,13 +77,22 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
             <div className="flex gap-4">
-              <Link href="#" className="text-gray-300 hover:text-primary transition">
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-primary transition"
+              >
                 <Facebook size={20} />
               </Link>
-              <Link href="#" className="text-gray-300 hover:text-primary transition">
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-primary transition"
+              >
                 <Linkedin size={20} />
               </Link>
-              <Link href="#" className="text-gray-300 hover:text-primary transition">
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-primary transition"
+              >
                 <Twitter size={20} />
               </Link>
             </div>
@@ -80,10 +102,11 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-8">
           <p className="text-center text-gray-300 text-sm">
-            © 2025 FeedEquip. All rights reserved. | Quality Animal Feeder Equipment
+            © 2025 FeedEquip. All rights reserved. | Quality Animal Feeder
+            Equipment
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

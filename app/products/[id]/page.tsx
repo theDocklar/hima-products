@@ -50,7 +50,7 @@ export default function ProductDetailPage() {
           {/* Back Link */}
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 hover:gap-3 transition-all duration-300 mb-8 animate-fade-in"
           >
             <ChevronLeft size={20} />
             Back to Products
@@ -59,8 +59,11 @@ export default function ProductDetailPage() {
           {/* Product Detail Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Product Image */}
-            <div className="flex flex-col gap-4">
-              <div className="relative w-full aspect-square overflow-hidden rounded-lg bg-muted">
+            <div
+              className="flex flex-col gap-4 animate-slide-up"
+              style={{ animationDelay: "200ms" }}
+            >
+              <div className="relative w-full aspect-square overflow-hidden rounded-lg bg-muted shadow-xl hover:shadow-2xl transition-shadow duration-500">
                 <Image
                   src={
                     product.images?.[selectedImage] ||
@@ -100,7 +103,10 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Product Information */}
-            <div className="flex flex-col justify-start gap-6">
+            <div
+              className="flex flex-col justify-start gap-6 animate-slide-up"
+              style={{ animationDelay: "400ms" }}
+            >
               <div>
                 <p className="text-sm font-semibold text-primary mb-2">
                   {product.category}
@@ -125,15 +131,19 @@ export default function ProductDetailPage() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 text-base h-12">
-                  Request a Quote
-                </Button>
-                <Button
-                  variant="outline"
-                  className="flex-1 border-primary text-primary hover:bg-primary/10 text-base h-12 bg-transparent"
-                >
-                  Contact Us
-                </Button>
+                <Link href="/contact" className="flex-1">
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-base h-12 shadow-lg hover:shadow-xl">
+                    Request a Quote
+                  </Button>
+                </Link>
+                <Link href="/contact" className="flex-1">
+                  <Button
+                    variant="outline"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 text-base h-12 bg-transparent"
+                  >
+                    Contact Us
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -142,7 +152,10 @@ export default function ProductDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Specifications */}
             {product.specifications && product.specifications.length > 0 && (
-              <Card>
+              <Card
+                className="animate-slide-up"
+                style={{ animationDelay: "600ms" }}
+              >
                 <CardContent className="pt-6">
                   <h3 className="text-2xl font-bold text-foreground mb-6">
                     Specifications
@@ -164,7 +177,10 @@ export default function ProductDetailPage() {
 
             {/* Features */}
             {product.features && product.features.length > 0 && (
-              <Card>
+              <Card
+                className="animate-slide-up"
+                style={{ animationDelay: "700ms" }}
+              >
                 <CardContent className="pt-6">
                   <h3 className="text-2xl font-bold text-foreground mb-6">
                     Key Features
@@ -187,17 +203,23 @@ export default function ProductDetailPage() {
 
           {/* Related Products */}
           {relatedProducts.length > 0 && (
-            <div>
+            <div
+              className="animate-fade-in"
+              style={{ animationDelay: "800ms" }}
+            >
               <h3 className="text-3xl font-bold text-foreground mb-8">
                 Related Products
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {relatedProducts.map((relatedProduct) => (
+                {relatedProducts.map((relatedProduct, index) => (
                   <Link
                     key={relatedProduct.id}
                     href={`/products/${relatedProduct.id}`}
                   >
-                    <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full">
+                    <Card
+                      className="overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full animate-slide-up"
+                      style={{ animationDelay: `${index * 100 + 900}ms` }}
+                    >
                       <div className="relative h-56 overflow-hidden bg-muted">
                         <Image
                           src={
@@ -206,7 +228,7 @@ export default function ProductDetailPage() {
                           }
                           alt={relatedProduct.name}
                           fill
-                          className="object-cover hover:scale-110 transition-transform duration-300"
+                          className="object-cover hover:scale-110 transition-transform duration-500"
                         />
                       </div>
                       <CardContent className="pt-4">
