@@ -60,15 +60,16 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 text-gray-300">
                 <Phone size={16} />
-                <span>+1 (555) 123-4567</span>
+                <span>+94 70 320 3030</span>
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <Mail size={16} />
-                <span>info@feedequip.com</span>
+                <span>info@himaproducts.com</span>
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <MapPin size={16} />
-                <span>123 Industrial Way, Farm Valley, ST 12345</span>
+                <span>No: 348/A, Weligampitiya, Ja Ela 11350</span>
+                <span></span>
               </li>
             </ul>
           </div>
@@ -102,7 +103,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-8">
           <p className="text-center text-gray-300 text-sm">
-            © 2025 FeedEquip. All rights reserved. | Quality Animal Feeder
+            © 2025 Hima Products. All rights reserved. | Quality Animal Feeder
             Equipment
           </p>
         </div>
