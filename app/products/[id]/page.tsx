@@ -6,15 +6,72 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { products, getProductById } from "@/lib/products";
-import { ChevronLeft, Check } from "lucide-react";
+import { ChevronLeft, Check, ZoomIn, ZoomOut } from "lucide-react";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function ProductDetailPage() {
   const params = useParams();
   const productId = Number.parseInt(params.id as string);
   const product = getProductById(productId);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartRef = useRef({ x: 0, y: 0 });
+
+  const MIN_ZOOM = 1;
+  const MAX_ZOOM = 3;
+  const ZOOM_STEP = 0.25;
+
+  const zoomIn = () => {
+    setZoomLevel((prev) => Math.min(prev + ZOOM_STEP, MAX_ZOOM));
+  };
+
+  const zoomOut = () => {
+    setZoomLevel((prev) => {
+      const nextZoom = Math.max(prev - ZOOM_STEP, MIN_ZOOM);
+      if (nextZoom === MIN_ZOOM) {
+        setPanOffset({ x: 0, y: 0 });
+      }
+      return nextZoom;
+    });
+  };
+
+  const resetZoom = () => {
+    setZoomLevel(MIN_ZOOM);
+    setPanOffset({ x: 0, y: 0 });
+  };
+
+  const handleImageWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    if (event.deltaY < 0) {
+      zoomIn();
+      return;
+    }
+    zoomOut();
+  };
+
+  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (zoomLevel <= MIN_ZOOM) return;
+    setIsDragging(true);
+    dragStartRef.current = {
+      x: event.clientX - panOffset.x,
+      y: event.clientY - panOffset.y,
+    };
+  };
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging || zoomLevel <= MIN_ZOOM) return;
+    setPanOffset({
+      x: event.clientX - dragStartRef.current.x,
+      y: event.clientY - dragStartRef.current.y,
+    });
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
   const relatedProducts = product
     ? products
@@ -63,7 +120,46 @@ export default function ProductDetailPage() {
               className="flex flex-col gap-4 animate-slide-up"
               style={{ animationDelay: "200ms" }}
             >
-              <div className="relative w-full aspect-square overflow-hidden rounded-lg bg-muted shadow-xl hover:shadow-2xl transition-shadow duration-500">
+              <div
+                className="relative w-full aspect-square overflow-hidden rounded-lg bg-muted shadow-xl hover:shadow-2xl transition-shadow duration-500"
+                onWheel={handleImageWheel}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseUp}
+              >
+                <div className="absolute top-3 right-3 z-10 flex items-center gap-2">
+                  <Button
+                    type="button"
+                    size="icon"
+                    variant="outline"
+                    onClick={zoomOut}
+                    disabled={zoomLevel <= MIN_ZOOM}
+                    aria-label="Zoom out image"
+                    className="h-9 w-9 border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+                  >
+                    <ZoomOut className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    type="button"
+                    size="icon"
+                    variant="outline"
+                    onClick={zoomIn}
+                    disabled={zoomLevel >= MAX_ZOOM}
+                    aria-label="Zoom in image"
+                    className="h-9 w-9 border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+                  >
+                    <ZoomIn className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={resetZoom}
+                    disabled={zoomLevel === MIN_ZOOM}
+                    className="h-9 px-3 text-xs border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+                  >
+                    Reset
+                  </Button>
+                </div>
                 <Image
                   src={
                     product.images?.[selectedImage] ||
@@ -72,7 +168,18 @@ export default function ProductDetailPage() {
                   }
                   alt={product.name}
                   fill
-                  className="object-cover"
+                  className={`object-contain select-none ${
+                    zoomLevel > MIN_ZOOM
+                      ? isDragging
+                        ? "cursor-grabbing"
+                        : "cursor-grab"
+                      : "cursor-default"
+                  } ${isDragging ? "" : "transition-transform duration-300"}`}
+                  style={{
+                    transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${zoomLevel})`,
+                  }}
+                  onMouseDown={handleMouseDown}
+                  draggable={false}
                   priority
                 />
               </div>
@@ -83,7 +190,10 @@ export default function ProductDetailPage() {
                   {product.images.map((img, index) => (
                     <button
                       key={index}
-                      onClick={() => setSelectedImage(index)}
+                      onClick={() => {
+                        setSelectedImage(index);
+                        resetZoom();
+                      }}
                       className={`relative aspect-square rounded overflow-hidden border-2 transition-all ${
                         selectedImage === index
                           ? "border-primary"

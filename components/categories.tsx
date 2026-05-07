@@ -6,7 +6,7 @@ import { Layers, Package, HeartPulse } from "lucide-react";
 const categories = [
   {
     id: 1,
-    name: "Poultry Accessories",
+    name: "Poultry Equipments",
     description:
       "Specialized equipment for chicken, duck, and bird operations.",
     icon: "Layers",
@@ -17,7 +17,7 @@ const categories = [
     name: "Packing Solutions",
     description: "Durable egg crates, transport solutions and storage systems.",
     icon: "Package",
-    image: "/egg-crate1.jpg",
+    image: "/CHICKEN CAGE..jpeg",
   },
   {
     id: 3,
