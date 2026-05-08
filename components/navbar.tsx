@@ -26,7 +26,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <Link
             href="/"
-            className="flex items-center hover:scale-105 transition-transform duration-300 animate-slide-down"
+            className="flex items-center hover:scale-105 transition-transform duration-300"
           >
             <Image
               src="/hima-logo.png"
@@ -41,53 +41,56 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             <Link
               href="/"
-              className="relative text-foreground hover:text-primary transition-colors duration-300 group animate-fade-in"
-              style={{ animationDelay: "100ms" }}
+              className="relative text-foreground hover:text-primary transition-colors duration-300 group"
             >
               Home
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               href="/#about"
-              className="relative text-foreground hover:text-primary transition-colors duration-300 group animate-fade-in"
-              style={{ animationDelay: "200ms" }}
+              className="relative text-foreground hover:text-primary transition-colors duration-300 group"
             >
               About Us
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               href="/products"
-              className="relative text-foreground hover:text-primary transition-colors duration-300 group animate-fade-in"
-              style={{ animationDelay: "300ms" }}
+              className="relative text-foreground hover:text-primary transition-colors duration-300 group"
             >
               Products
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               href="/#categories"
-              className="relative text-foreground hover:text-primary transition-colors duration-300 group animate-fade-in"
-              style={{ animationDelay: "400ms" }}
+              className="relative text-foreground hover:text-primary transition-colors duration-300 group"
             >
               Categories
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               href="/contact"
-              className="relative text-foreground hover:text-primary transition-colors duration-300 group animate-fade-in"
-              style={{ animationDelay: "500ms" }}
+              className="relative text-foreground hover:text-primary transition-colors duration-300 group"
             >
               Contact
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </div>
 
-          {/* CTA Button */}
-          <div
-            className="hidden md:block animate-fade-in"
-            style={{ animationDelay: "600ms" }}
-          >
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
             <Link href="/contact">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 hover:shadow-lg transition-all duration-300">
+              <Button
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 hover:shadow-lg transition-all duration-300"
+              >
+                Bulk Order
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 hover:shadow-lg transition-all duration-300"
+              >
                 Request a Quote
               </Button>
             </Link>
@@ -99,64 +102,59 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? (
-              <X size={24} className="animate-spin-once" />
-            ) : (
-              <Menu size={24} />
-            )}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 flex flex-col gap-4 animate-slide-down bg-gradient-to-b from-background to-background/95 rounded-b-lg shadow-lg">
+          <div className="md:hidden pb-4 flex flex-col gap-4 bg-gradient-to-b from-background to-background/95 rounded-b-lg shadow-lg">
             <Link
               href="/"
-              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 animate-slide-down px-2 py-1 rounded hover:bg-primary/10"
-              style={{ animationDelay: "50ms" }}
+              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 px-2 py-1 rounded hover:bg-primary/10"
               onClick={() => setIsOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/#about"
-              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 animate-slide-down px-2 py-1 rounded hover:bg-primary/10"
-              style={{ animationDelay: "100ms" }}
+              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 px-2 py-1 rounded hover:bg-primary/10"
               onClick={() => setIsOpen(false)}
             >
               About Us
             </Link>
             <Link
               href="/products"
-              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 animate-slide-down px-2 py-1 rounded hover:bg-primary/10"
-              style={{ animationDelay: "150ms" }}
+              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 px-2 py-1 rounded hover:bg-primary/10"
               onClick={() => setIsOpen(false)}
             >
               Products
             </Link>
             <Link
               href="/#categories"
-              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 animate-slide-down px-2 py-1 rounded hover:bg-primary/10"
-              style={{ animationDelay: "200ms" }}
+              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 px-2 py-1 rounded hover:bg-primary/10"
               onClick={() => setIsOpen(false)}
             >
               Categories
             </Link>
             <Link
               href="/contact"
-              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 animate-slide-down px-2 py-1 rounded hover:bg-primary/10"
-              style={{ animationDelay: "250ms" }}
+              className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 px-2 py-1 rounded hover:bg-primary/10"
               onClick={() => setIsOpen(false)}
             >
               Contact
             </Link>
-            <Link
-              href="/contact"
-              className="w-full animate-slide-down"
-              style={{ animationDelay: "300ms" }}
-            >
+            <Link href="/contact" className="w-full">
               <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-300">
                 Request a Quote
+              </Button>
+            </Link>
+            <Link href="/contact" className="w-full">
+              <Button
+                variant="outline"
+                className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-lg transition-all duration-300"
+              >
+                Bulk Order
               </Button>
             </Link>
           </div>
