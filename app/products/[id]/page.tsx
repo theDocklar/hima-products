@@ -128,86 +128,152 @@ export default function ProductDetailPage() {
                 onMouseLeave={handleMouseUp}
               >
                 <div className="absolute top-3 right-3 z-10 flex items-center gap-2">
-                  <Button
-                    type="button"
-                    size="icon"
-                    variant="outline"
-                    onClick={zoomOut}
-                    disabled={zoomLevel <= MIN_ZOOM}
-                    aria-label="Zoom out image"
-                    className="h-9 w-9 border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
-                  >
-                    <ZoomOut className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    type="button"
-                    size="icon"
-                    variant="outline"
-                    onClick={zoomIn}
-                    disabled={zoomLevel >= MAX_ZOOM}
-                    aria-label="Zoom in image"
-                    className="h-9 w-9 border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
-                  >
-                    <ZoomIn className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={resetZoom}
-                    disabled={zoomLevel === MIN_ZOOM}
-                    className="h-9 px-3 text-xs border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
-                  >
-                    Reset
-                  </Button>
+                  {(() => {
+                    const currentMedia =
+                      product.images?.[selectedImage] || product.image;
+                    const isVideo =
+                      currentMedia?.toLowerCase().endsWith(".mp4") ||
+                      currentMedia?.toLowerCase().endsWith(".mov") ||
+                      currentMedia?.toLowerCase().endsWith(".avi");
+
+                    if (isVideo) return null;
+
+                    return (
+                      <>
+                        <Button
+                          type="button"
+                          size="icon"
+                          variant="outline"
+                          onClick={zoomOut}
+                          disabled={zoomLevel <= MIN_ZOOM}
+                          aria-label="Zoom out image"
+                          className="h-9 w-9 border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+                        >
+                          <ZoomOut className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          type="button"
+                          size="icon"
+                          variant="outline"
+                          onClick={zoomIn}
+                          disabled={zoomLevel >= MAX_ZOOM}
+                          aria-label="Zoom in image"
+                          className="h-9 w-9 border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+                        >
+                          <ZoomIn className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={resetZoom}
+                          disabled={zoomLevel === MIN_ZOOM}
+                          className="h-9 px-3 text-xs border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+                        >
+                          Reset
+                        </Button>
+                      </>
+                    );
+                  })()}
                 </div>
-                <Image
-                  src={
-                    product.images?.[selectedImage] ||
-                    product.image ||
-                    "/placeholder.svg?height=600&width=600&query=animal feeder equipment"
+                {(() => {
+                  const currentMedia =
+                    product.images?.[selectedImage] || product.image;
+                  const isVideo =
+                    currentMedia?.toLowerCase().endsWith(".mp4") ||
+                    currentMedia?.toLowerCase().endsWith(".mov") ||
+                    currentMedia?.toLowerCase().endsWith(".avi");
+
+                  if (isVideo) {
+                    return (
+                      <video
+                        src={currentMedia}
+                        controls
+                        className="w-full h-full object-contain"
+                        style={{
+                          transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${zoomLevel})`,
+                        }}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    );
                   }
-                  alt={product.name}
-                  fill
-                  className={`object-contain select-none ${
-                    zoomLevel > MIN_ZOOM
-                      ? isDragging
-                        ? "cursor-grabbing"
-                        : "cursor-grab"
-                      : "cursor-default"
-                  } ${isDragging ? "" : "transition-transform duration-300"}`}
-                  style={{
-                    transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${zoomLevel})`,
-                  }}
-                  onMouseDown={handleMouseDown}
-                  draggable={false}
-                  priority
-                />
+
+                  return (
+                    <Image
+                      src={
+                        currentMedia ||
+                        "/placeholder.svg?height=600&width=600&query=animal feeder equipment"
+                      }
+                      alt={product.name}
+                      fill
+                      className={`object-contain select-none ${
+                        zoomLevel > MIN_ZOOM
+                          ? isDragging
+                            ? "cursor-grabbing"
+                            : "cursor-grab"
+                          : "cursor-default"
+                      } ${isDragging ? "" : "transition-transform duration-300"}`}
+                      style={{
+                        transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${zoomLevel})`,
+                      }}
+                      onMouseDown={handleMouseDown}
+                      draggable={false}
+                      priority
+                    />
+                  );
+                })()}
               </div>
 
               {/* Thumbnail Gallery */}
               {product.images && product.images.length > 1 && (
                 <div className="grid grid-cols-4 gap-2">
-                  {product.images.map((img, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setSelectedImage(index);
-                        resetZoom();
-                      }}
-                      className={`relative aspect-square rounded overflow-hidden border-2 transition-all ${
-                        selectedImage === index
-                          ? "border-primary"
-                          : "border-transparent hover:border-gray-300"
-                      }`}
-                    >
-                      <Image
-                        src={img}
-                        alt={`${product.name} view ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </button>
-                  ))}
+                  {product.images.map((img, index) => {
+                    const isVideo =
+                      img?.toLowerCase().endsWith(".mp4") ||
+                      img?.toLowerCase().endsWith(".mov") ||
+                      img?.toLowerCase().endsWith(".avi");
+
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setSelectedImage(index);
+                          resetZoom();
+                        }}
+                        className={`relative aspect-square rounded overflow-hidden border-2 transition-all ${
+                          selectedImage === index
+                            ? "border-primary"
+                            : "border-transparent hover:border-gray-300"
+                        }`}
+                      >
+                        {isVideo ? (
+                          <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                            <div className="text-center">
+                              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-1">
+                                <svg
+                                  className="w-4 h-4 text-white"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
+                                >
+                                  <path d="M8 5v10l8-5-8-5z" />
+                                </svg>
+                              </div>
+                              <span className="text-xs text-gray-600">
+                                Video
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
+                          <Image
+                            src={img}
+                            alt={`${product.name} view ${index + 1}`}
+                            fill
+                            className="object-cover"
+                          />
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </div>

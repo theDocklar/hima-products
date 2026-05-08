@@ -203,36 +203,36 @@ export const products: Product[] = [
     ],
   },
 
-  // {
-  //   id: 8,
-  //   name: "Egg Tray",
-  //   category: "Packing Solutions",
-  //   image: "/egg-tray1.jpg",
-  //   images: ["/egg-tray1.jpg", "/egg-tray2.jpg"],
-  //   description:
-  //     "Durable Multi-Color Plastic Trays for Safe Egg Storage & Transport",
-  //   price: "Contact for pricing",
-  //   inStock: true,
-  //   longDescription: `Organize and protect your fresh eggs with our high-quality plastic egg trays from Hima Products — the reliable choice for Sri Lankan
-  //     poultry farmers, backyard keepers, and small egg producers. These vibrant, stackable trays come in eye-catching colors (red, orange,
-  //     yellow, green, blue) and are designed to hold eggs securely, preventing breakage during collection, storage, or market delivery.
-  //     Customization at its best: Choose from a variety of vibrant custom colors for your egg trays to create eye-catching, brand-aligned
-  //     packaging that enhances your product's appeal in the market. Custom color production is subject to the following standard terms and
-  //     conditions:
-  //     Minimum order quantity (MOQ) requirements to ensure cost-effectiveness, Applicable production lead times,
-  //     Confirmation of color availability and dye consistency. Contact us for a quote, color samples, or to discuss your specific requirements -
-  //     we're happy to help bring your vision to life`,
-  //   specifications: [
-  //     "Generous capacity & stackable — Standard 30-egg layout (common for these trays) per layer; multiple trays stack neatly for space- saving storage or transport — ideal for collecting dozens to hundreds of eggs at once.",
-  //     "Made with the finest materials — Crafted from premium, food-grade, non-toxic plastic that's strong, lightweight, and resistant to cracking or warping — built to handle daily farm use in humid tropical conditions without degrading.",
-  //     "Versatile for all farms — Perfect for layers in backyard setups, small commercial farms, or egg collection points in Colombo and rural areas — durable enough for repeated use season after season.",
-  //   ],
-  //   features: [
-  //     "Secure & protective design — Each tray features individual cone-shaped pockets with rounded edges to cradle eggs gently; reduces rolling, cracking, and damage from bumps or stacking.",
-  //     "Easy to clean & hygienic — Smooth surfaces rinse quickly with water; no pores for bacteria buildup — maintains egg quality and meets basic hygiene standards for selling or home use.",
-  //     "Bright, visible colors — Multi-color options (rainbow stack shown) make them easy to spot in the coop, storage area, or market stall; helps with organization and quick inventory checks.",
-  //   ],
-  // },
+  {
+    id: 8,
+    name: "Egg Tray",
+    category: "Poultry Equipments",
+    image: "/egg-tray1.jpg",
+    images: ["/egg-tray1.jpg", "/egg-tray2.jpg"],
+    description:
+      "Durable Multi-Color Plastic Trays for Safe Egg Storage & Transport",
+    price: "Contact for pricing",
+    inStock: true,
+    longDescription: `Organize and protect your fresh eggs with our high-quality plastic egg trays from Hima Products — the reliable choice for Sri Lankan
+      poultry farmers, backyard keepers, and small egg producers. These vibrant, stackable trays come in eye-catching colors (red, orange,
+      yellow, green, blue) and are designed to hold eggs securely, preventing breakage during collection, storage, or market delivery.
+      Customization at its best: Choose from a variety of vibrant custom colors for your egg trays to create eye-catching, brand-aligned
+      packaging that enhances your product's appeal in the market. Custom color production is subject to the following standard terms and
+      conditions:
+      Minimum order quantity (MOQ) requirements to ensure cost-effectiveness, Applicable production lead times,
+      Confirmation of color availability and dye consistency. Contact us for a quote, color samples, or to discuss your specific requirements -
+      we're happy to help bring your vision to life`,
+    specifications: [
+      "Generous capacity & stackable — Standard 30-egg layout (common for these trays) per layer; multiple trays stack neatly for space- saving storage or transport — ideal for collecting dozens to hundreds of eggs at once.",
+      "Made with the finest materials — Crafted from premium, food-grade, non-toxic plastic that's strong, lightweight, and resistant to cracking or warping — built to handle daily farm use in humid tropical conditions without degrading.",
+      "Versatile for all farms — Perfect for layers in backyard setups, small commercial farms, or egg collection points in Colombo and rural areas — durable enough for repeated use season after season.",
+    ],
+    features: [
+      "Secure & protective design — Each tray features individual cone-shaped pockets with rounded edges to cradle eggs gently; reduces rolling, cracking, and damage from bumps or stacking.",
+      "Easy to clean & hygienic — Smooth surfaces rinse quickly with water; no pores for bacteria buildup — maintains egg quality and meets basic hygiene standards for selling or home use.",
+      "Bright, visible colors — Multi-color options (rainbow stack shown) make them easy to spot in the coop, storage area, or market stall; helps with organization and quick inventory checks.",
+    ],
+  },
   {
     id: 9,
     name: "Feeder Hanging Cord",
@@ -263,6 +263,7 @@ export const products: Product[] = [
     name: "Chicken Transporting Cages",
     category: "Packing Solutions",
     image: "/chicken-transporting-cages1.jpg",
+    images: ["/chicken-transporting-cages1.jpg", "/chicken-cage.MP4"],
     description:
       "Durable Plastic Crates in Green & Orange (Custom Mix Available) Dimension L 95.30 x W57.20 x 25.40 -CM",
     price: "Contact for pricing",

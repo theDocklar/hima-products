@@ -17,8 +17,9 @@ export default function ProductSearchBar({
         type="text"
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        placeholder="Search products by name..."
+        placeholder="Search Products"
         aria-label="Search products by name"
+        className="shadow-md"
       />
     </div>
   );
