@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, PhoneCall } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -59,17 +59,23 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-white">Contact Info</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 text-gray-300">
+                <PhoneCall size={16} />
+                <span>+94 11 303 8425</span> <br />
+              </li>
+              <li className="flex items-center gap-2 text-gray-300">
                 <Phone size={16} />
-                <span>+94 70 320 3030</span>
+                <span>+94 70 320 3035</span> <br />
+                <span>+94 77 125 5820</span>
+
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <Mail size={16} />
-                <span>info@himaproducts.com</span>
+                <span>hima.products@yahoo.com</span>
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <MapPin size={16} />
-                <span>No: 348/A, Weligampitiya, Ja Ela 11350</span>
-                <span></span>
+                <span>No: 314, Negombo Road, <br /> Thudella, Ja-ela.</span>
+                
               </li>
             </ul>
           </div>
@@ -94,7 +100,6 @@ export default function Footer() {
                 href="#"
                 className="text-gray-300 hover:text-primary transition"
               >
-                <Twitter size={20} />
               </Link>
             </div>
           </div>

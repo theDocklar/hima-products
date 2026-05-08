@@ -8,10 +8,13 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Animal Feeder Equipment | Professional Distributor & Manufacturer",
+  title: "Hima Products",
   description:
     "Leading distributor and manufacturer of quality animal feeder equipment. Trusted solutions for poultry, livestock, and automatic feeding systems.",
-  generator: "v0.app",
+  icons:{
+    icon: "./LOGO.jpeg"
+  },
+    generator: "v0.app",
 }
 
 export default function RootLayout({

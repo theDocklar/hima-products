@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import ProductSearchBar from "@/components/product-search-bar";
 import Image from "next/image";
 import Link from "next/link";
 import { products, categories } from "@/lib/products";
@@ -16,6 +17,7 @@ function ProductsContent() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     categoryFromUrl,
   );
+  const [searchTerm, setSearchTerm] = useState("");
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   useEffect(() => {
@@ -24,9 +26,16 @@ function ProductsContent() {
     }
   }, [categoryFromUrl]);
 
-  const filteredProducts = selectedCategory
-    ? products.filter((p) => p.category === selectedCategory)
-    : products;
+  const filteredProducts = products.filter((product) => {
+    const matchesCategory = selectedCategory
+      ? product.category === selectedCategory
+      : true;
+    const matchesSearch = product.name
+      .toLowerCase()
+      .includes(searchTerm.trim().toLowerCase());
+
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <>
@@ -49,26 +58,29 @@ function ProductsContent() {
             <h3 className="text-lg font-semibold text-foreground mb-4">
               Filter by Category
             </h3>
-            <div className="flex flex-wrap gap-3">
-              <Button
-                onClick={() => setSelectedCategory(null)}
-                variant={selectedCategory === null ? "default" : "outline"}
-                className="transition-all hover:scale-105 duration-300"
-              >
-                All Products
-              </Button>
-              {categories.map((category) => (
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="flex flex-wrap gap-3">
                 <Button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  variant={
-                    selectedCategory === category ? "default" : "outline"
-                  }
+                  onClick={() => setSelectedCategory(null)}
+                  variant={selectedCategory === null ? "default" : "outline"}
                   className="transition-all hover:scale-105 duration-300"
                 >
-                  {category}
+                  All Products
                 </Button>
-              ))}
+                {categories.map((category) => (
+                  <Button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    variant={
+                      selectedCategory === category ? "default" : "outline"
+                    }
+                    className="transition-all hover:scale-105 duration-300"
+                  >
+                    {category}
+                  </Button>
+                ))}
+              </div>
+              <ProductSearchBar value={searchTerm} onChange={setSearchTerm} />
             </div>
           </div>
 
@@ -133,7 +145,7 @@ function ProductsContent() {
           {filteredProducts.length === 0 && (
             <div className="text-center py-12">
               <p className="text-lg text-muted-foreground">
-                No products found in this category.
+                No products found for this filter.
               </p>
             </div>
           )}

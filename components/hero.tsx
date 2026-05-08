@@ -7,16 +7,16 @@ import Link from "next/link";
 
 const heroImages = [
   {
+    url: "/BUILDING.jpeg",
+    alt: "Hima Building",
+  },
+  {
     url: "/poultry-feeder-equipment.jpg",
     alt: "Poultry feeder equipment",
   },
   {
     url: "/livestock-feeding-system.jpg",
     alt: "Livestock feeding system",
-  },
-  {
-    url: "/automatic-feed-dispensing.jpg",
-    alt: "Automatic feed dispensing system",
   },
 ];
 

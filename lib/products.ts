@@ -1,7 +1,7 @@
 export interface Product {
   id: number;
   name: string;
-  category: "Poultry Accessories" | "Packing Solutions" | "Hima Vet Care";
+  category: "Poultry Equipments" | "Packing Solutions" | "Hima Vet Care";
   image: string;
   images?: string[];
   description: string;
@@ -14,9 +14,42 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    id: 0,
+    name: "Auto Drinker",
+    category: "Poultry Equipments",
+    image: "/auto-drinker.png",
+    images: [
+      "/auto-drinker.png",
+      "/auto-drinker2.jpg",
+      "/auto-drinker3.jpg",
+      "/auto-drinker4.jpg",
+      "/auto-drinker5.jpg",
+      "/auto-drinker6.jpg",
+      "/auto-drinker7.jpg",
+    ],
+    description:
+      "Proudly Sri Lankan-Made Automatic Bell Drinker (Red Cone Model).",
+    price: "Contact for pricing",
+    inStock: true,
+    longDescription: `We're thrilled to showcase our upgraded Auto Drinker, the best-selling automatic bell drinker in Sri Lanka — and the only one proudly manufactured right here in Sri Lanka! 
+    While others in the market rely on imported versions, this is our own local innovation, engineered and produced by us to meet the real needs of Sri Lankan poultry farmers. 
+    We've improved it with better durability, smarter features, and superior performance — holding its own (and often outperforming) against big foreign brands. 
+    This bright red cone-shaped automatic bell drinker delivers clean, fresh water on demand with zero hassle, using a reliable pressure-triggered valve system connected via black tubing and secure hanging clips/rope. 
+    The wide red tray catches any drips, keeping floors dry and reducing waste.`,
+    specifications: [
+      "Locally manufactured pride — 100% Sri Lankan production using the finest food-grade, UV-resistant plastic — tougher against our tropical humidity, heat, and rain than many imports; no quality compromises.",
+      "Water-saving & hygienic — Birds trigger water only when pecking — cuts waste by up to 70%, prevents algae/dirt contamination, and keeps water fresher for healthier flocks and fewer diseases.",
+    ],
+    features: [
+      "Bird-friendly & versatile — Wide red tray suits broilers, layers, chicks to adults; adjustable hanging setup grows with your birds; ideal for floor, cage, or free-range systems.",
+      "Proven best-seller — Farmers across Colombo and the island choose it for reliability, low maintenance, and real cost savings — competes head-to-head with imported brands at better value.",
+      "Advanced improvements — Enhanced valve and adjustable height mechanism for precise water flow; upgraded anti-leak design and durable black fittings/clamps for longer life and easier installation.",
+    ],
+  },
+  {
     id: 1,
     name: "Hanging Poultry Feeder",
-    category: "Poultry Accessories",
+    category: "Poultry Equipments",
     image: "/poultry-feeder1.jpg",
     images: ["/poultry-feeder1.jpg", "/poultry-feeder2.jpg"],
     description: "Made with the Finest Materials for Lasting Durability",
@@ -41,7 +74,7 @@ export const products: Product[] = [
   {
     id: 2,
     name: "Turbo Poultry Feeder",
-    category: "Poultry Accessories",
+    category: "Poultry Equipments",
     image: "/turbo-poultry1.jpg",
     images: ["/turbo-poultry1.jpg", "/turbo-poultry2.jpg"],
     description:
@@ -67,7 +100,7 @@ export const products: Product[] = [
   {
     id: 3,
     name: "Chick Feed Tray",
-    category: "Poultry Accessories",
+    category: "Poultry Equipments",
     image: "/chick-feeder1.jpg",
     images: ["/chick-feeder1.jpg", "/chick-feeder2.jpg"],
     description:
@@ -92,7 +125,7 @@ export const products: Product[] = [
   {
     id: 4,
     name: "Manual Poultry Drinkers",
-    category: "Poultry Accessories",
+    category: "Poultry Equipments",
     image: "/manual-poultry-drinker1.jpg",
     images: ["/manual-poultry-drinker1.jpg", "/manual-poultry-drinker2.jpg"],
     description:
@@ -121,8 +154,8 @@ export const products: Product[] = [
   {
     id: 5,
     name: "Brooder Guard",
-    category: "Poultry Accessories",
-    image: "/brooder-guard.jpg",
+    category: "Poultry Equipments",
+    image: "/brooder-guard.png",
     description:
       "57 Feet (for 1000 Chicks) & 40 Feet (for 500 Chicks) – Premium Non-Corrosive Protection",
     price: "Contact for pricing",
@@ -149,8 +182,8 @@ export const products: Product[] = [
   {
     id: 6,
     name: "Light Brooder Canopy",
-    category: "Poultry Accessories",
-    image: "/light-brooder-canopy.jpg",
+    category: "Poultry Equipments",
+    image: "/light-brooder-canopy.png",
     description:
       "Premium Blue Exterior with Silver Reflective Interior for Superior Chick Warming (Up to 500 Chicks)",
     price: "Contact for custom quote",
@@ -169,73 +202,41 @@ export const products: Product[] = [
       "Silver reflective inside — High-shine silver interior bounces and focuses lamp heat perfectly — no wasted energy, even distribution across the brooding area, helping maintain ideal temperatures (32–35°C start) with fewer bulbs.",
     ],
   },
-  {
-    id: 7,
-    name: "Auto Drinker",
-    category: "Poultry Accessories",
-    image: "/auto-drinker.jpg",
-    images: [
-      "/auto-drinker.jpg",
-      "/auto-drinker2.jpg",
-      "/auto-drinker3.jpg",
-      "/auto-drinker4.jpg",
-      "/auto-drinker5.jpg",
-      "/auto-drinker6.jpg",
-      "/auto-drinker7.jpg",
-    ],
-    description:
-      "Proudly Sri Lankan-Made Automatic Bell Drinker (Red Cone Model).",
-    price: "Contact for pricing",
-    inStock: true,
-    longDescription: `We're thrilled to showcase our upgraded Auto Drinker, the best-selling automatic bell drinker in Sri Lanka — and the only one proudly manufactured right here in Sri Lanka! 
-    While others in the market rely on imported versions, this is our own local innovation, engineered and produced by us to meet the real needs of Sri Lankan poultry farmers. 
-    We've improved it with better durability, smarter features, and superior performance — holding its own (and often outperforming) against big foreign brands. 
-    This bright red cone-shaped automatic bell drinker delivers clean, fresh water on demand with zero hassle, using a reliable pressure-triggered valve system connected via black tubing and secure hanging clips/rope. 
-    The wide red tray catches any drips, keeping floors dry and reducing waste.`,
-    specifications: [
-      "Locally manufactured pride — 100% Sri Lankan production using the finest food-grade, UV-resistant plastic — tougher against our tropical humidity, heat, and rain than many imports; no quality compromises.",
-      "Water-saving & hygienic — Birds trigger water only when pecking — cuts waste by up to 70%, prevents algae/dirt contamination, and keeps water fresher for healthier flocks and fewer diseases.",
-    ],
-    features: [
-      "Bird-friendly & versatile — Wide red tray suits broilers, layers, chicks to adults; adjustable hanging setup grows with your birds; ideal for floor, cage, or free-range systems.",
-      "Proven best-seller — Farmers across Colombo and the island choose it for reliability, low maintenance, and real cost savings — competes head-to-head with imported brands at better value.",
-      "Advanced improvements — Enhanced valve and adjustable height mechanism for precise water flow; upgraded anti-leak design and durable black fittings/clamps for longer life and easier installation.",
-    ],
-  },
-  {
-    id: 8,
-    name: "Egg Tray",
-    category: "Packing Solutions",
-    image: "/egg-tray1.jpg",
-    images: ["/egg-tray1.jpg", "/egg-tray2.jpg"],
-    description:
-      "Durable Multi-Color Plastic Trays for Safe Egg Storage & Transport",
-    price: "Contact for pricing",
-    inStock: true,
-    longDescription: `Organize and protect your fresh eggs with our high-quality plastic egg trays from Hima Products — the reliable choice for Sri Lankan
-      poultry farmers, backyard keepers, and small egg producers. These vibrant, stackable trays come in eye-catching colors (red, orange,
-      yellow, green, blue) and are designed to hold eggs securely, preventing breakage during collection, storage, or market delivery.
-      Customization at its best: Choose from a variety of vibrant custom colors for your egg trays to create eye-catching, brand-aligned
-      packaging that enhances your product's appeal in the market. Custom color production is subject to the following standard terms and
-      conditions:
-      Minimum order quantity (MOQ) requirements to ensure cost-effectiveness, Applicable production lead times, 
-      Confirmation of color availability and dye consistency. Contact us for a quote, color samples, or to discuss your specific requirements -
-      we're happy to help bring your vision to life`,
-    specifications: [
-      "Generous capacity & stackable — Standard 30-egg layout (common for these trays) per layer; multiple trays stack neatly for space- saving storage or transport — ideal for collecting dozens to hundreds of eggs at once.",
-      "Made with the finest materials — Crafted from premium, food-grade, non-toxic plastic that's strong, lightweight, and resistant to cracking or warping — built to handle daily farm use in humid tropical conditions without degrading.",
-      "Versatile for all farms — Perfect for layers in backyard setups, small commercial farms, or egg collection points in Colombo and rural areas — durable enough for repeated use season after season.",
-    ],
-    features: [
-      "Secure & protective design — Each tray features individual cone-shaped pockets with rounded edges to cradle eggs gently; reduces rolling, cracking, and damage from bumps or stacking.",
-      "Easy to clean & hygienic — Smooth surfaces rinse quickly with water; no pores for bacteria buildup — maintains egg quality and meets basic hygiene standards for selling or home use.",
-      "Bright, visible colors — Multi-color options (rainbow stack shown) make them easy to spot in the coop, storage area, or market stall; helps with organization and quick inventory checks.",
-    ],
-  },
+
+  // {
+  //   id: 8,
+  //   name: "Egg Tray",
+  //   category: "Packing Solutions",
+  //   image: "/egg-tray1.jpg",
+  //   images: ["/egg-tray1.jpg", "/egg-tray2.jpg"],
+  //   description:
+  //     "Durable Multi-Color Plastic Trays for Safe Egg Storage & Transport",
+  //   price: "Contact for pricing",
+  //   inStock: true,
+  //   longDescription: `Organize and protect your fresh eggs with our high-quality plastic egg trays from Hima Products — the reliable choice for Sri Lankan
+  //     poultry farmers, backyard keepers, and small egg producers. These vibrant, stackable trays come in eye-catching colors (red, orange,
+  //     yellow, green, blue) and are designed to hold eggs securely, preventing breakage during collection, storage, or market delivery.
+  //     Customization at its best: Choose from a variety of vibrant custom colors for your egg trays to create eye-catching, brand-aligned
+  //     packaging that enhances your product's appeal in the market. Custom color production is subject to the following standard terms and
+  //     conditions:
+  //     Minimum order quantity (MOQ) requirements to ensure cost-effectiveness, Applicable production lead times,
+  //     Confirmation of color availability and dye consistency. Contact us for a quote, color samples, or to discuss your specific requirements -
+  //     we're happy to help bring your vision to life`,
+  //   specifications: [
+  //     "Generous capacity & stackable — Standard 30-egg layout (common for these trays) per layer; multiple trays stack neatly for space- saving storage or transport — ideal for collecting dozens to hundreds of eggs at once.",
+  //     "Made with the finest materials — Crafted from premium, food-grade, non-toxic plastic that's strong, lightweight, and resistant to cracking or warping — built to handle daily farm use in humid tropical conditions without degrading.",
+  //     "Versatile for all farms — Perfect for layers in backyard setups, small commercial farms, or egg collection points in Colombo and rural areas — durable enough for repeated use season after season.",
+  //   ],
+  //   features: [
+  //     "Secure & protective design — Each tray features individual cone-shaped pockets with rounded edges to cradle eggs gently; reduces rolling, cracking, and damage from bumps or stacking.",
+  //     "Easy to clean & hygienic — Smooth surfaces rinse quickly with water; no pores for bacteria buildup — maintains egg quality and meets basic hygiene standards for selling or home use.",
+  //     "Bright, visible colors — Multi-color options (rainbow stack shown) make them easy to spot in the coop, storage area, or market stall; helps with organization and quick inventory checks.",
+  //   ],
+  // },
   {
     id: 9,
     name: "Feeder Hanging Cord",
-    category: "Poultry Accessories",
+    category: "Poultry Equipments",
     image: "/feeder-hanging-chord1.jpg",
     images: ["/feeder-hanging-chord1.jpg", "/feeder-hanging-chord2.jpg"],
     description: "Durable Rope with Adjustable Clip for 5kg Feeders",
@@ -424,7 +425,7 @@ export const products: Product[] = [
 ];
 
 export const categories = [
-  "Poultry Accessories",
+  "Poultry Equipments",
   "Packing Solutions",
   "Hima Vet Care",
 ];

@@ -9,7 +9,7 @@ export default function About() {
           {/* Left: Image */}
           <div className="relative h-80 md:h-96 animate-fade-in group">
             <Image
-              src="/manufacturing-facility-factory.jpg"
+              src="/BUILDING.jpeg"
               alt="Manufacturing facility"
               fill
               className="object-cover rounded-lg shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105"
