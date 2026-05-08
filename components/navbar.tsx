@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -25,9 +26,15 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <Link
             href="/"
-            className="font-bold text-2xl text-primary hover:scale-105 transition-transform duration-300 animate-slide-down"
+            className="flex items-center hover:scale-105 transition-transform duration-300 animate-slide-down"
           >
-            Hima Products
+            <Image
+              src="/hima-logo.png"
+              alt="Hima Products logo"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Menu */}
