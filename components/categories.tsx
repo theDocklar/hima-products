@@ -14,7 +14,7 @@ const categories = [
   },
   {
     id: 2,
-    name: "Packing Solutions",
+    name: "Crates",
     description: "Durable egg crates, transport solutions and storage systems.",
     icon: "Package",
     image: "/CHICKEN CAGE..jpeg",

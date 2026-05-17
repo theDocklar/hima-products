@@ -26,12 +26,19 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <Link
             href="/"
-            className="flex items-center hover:scale-105 transition-transform duration-300"
+            className="flex items-center gap-2 hover:scale-105 transition-transform duration-300"
           >
             <Image
               src="/hima-logo.png"
               alt="Hima Products logo"
               width={120}
+              height={40}
+              className="h-10 w-auto"
+            />
+            <Image
+              src="/LOGO.jpeg"
+              alt="Hima Products icon"
+              width={40}
               height={40}
               className="h-10 w-auto"
             />

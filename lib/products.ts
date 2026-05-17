@@ -1,7 +1,7 @@
 export interface Product {
   id: number;
   name: string;
-  category: "Poultry Equipments" | "Packing Solutions" | "Hima Vet Care";
+  category: "Poultry Equipments" | "Crates" | "Hima Vet Care";
   image: string;
   images?: string[];
   description: string;
@@ -261,7 +261,7 @@ export const products: Product[] = [
   {
     id: 10,
     name: "Chicken Transporting Cages",
-    category: "Packing Solutions",
+    category: "Crates",
     image: "/chicken-transporting-cages1.jpg",
     images: ["/chicken-transporting-cages1.jpg", "/chicken-cage.MP4"],
     description:
@@ -286,7 +286,7 @@ export const products: Product[] = [
   {
     id: 11,
     name: "Egg Crates",
-    category: "Packing Solutions",
+    category: "Crates",
     image: "/egg-crate1.jpg",
     images: ["/egg-crate1.jpg", "/egg-crate2.jpg"],
     description:
@@ -313,7 +313,7 @@ export const products: Product[] = [
   {
     id: 12,
     name: "Foldable Egg Crate",
-    category: "Packing Solutions",
+    category: "Crates",
     image: "/foldable-egg-crate.jpg",
     description: "Improved Space-Saving Version",
     price: "Contact for pricing",
@@ -342,7 +342,7 @@ export const products: Product[] = [
   {
     id: 13,
     name: "Freezer Crate",
-    category: "Packing Solutions",
+    category: "Crates",
     image: "/freezer-crate.jpg",
     description:
       "Premium Yellow Ventilated Plastic Crate for Cold Chain Transport (Vegetables, Fruits, Fish & Meat) Dimension L60.00 x W39.00 x H18.70",
@@ -427,7 +427,7 @@ export const products: Product[] = [
 
 export const categories = [
   "Poultry Equipments",
-  "Packing Solutions",
+  "Crates",
   "Hima Vet Care",
 ];
 

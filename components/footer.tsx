@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Linkedin, PhoneCall } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, PhoneCall, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-foreground text-foreground-foreground bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Company */}
           <div>
             <h3 className="font-bold text-xl mb-4 text-white">Hima Products</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Leading distributor and manufacturer of quality animal feeder
-              equipment since 1995.
+              equipment since 2016.
             </p>
           </div>
 
@@ -66,11 +66,25 @@ export default function Footer() {
                 <Phone size={16} />
                 <span>+94 70 320 3035</span> <br />
                 <span>+94 77 125 5820</span>
-
+              </li>
+              <li className="flex items-center gap-2 text-gray-300">
+                <MessageCircle size={16} className="text-green-400 flex-shrink-0" />
+                <a
+                  href="https://wa.me/94712460500"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-green-400 transition"
+                >
+                  +94 71 246 0500
+                </a>
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <Mail size={16} />
                 <span>hima.products@yahoo.com</span>
+              </li>
+              <li className="flex items-center gap-2 text-gray-300">
+                <Mail size={16} />
+                <span>info@himaproducts.lk</span>
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <MapPin size={16} />
@@ -96,12 +110,22 @@ export default function Footer() {
               >
                 <Linkedin size={20} />
               </Link>
-              <Link
-                href="#"
-                className="text-gray-300 hover:text-primary transition"
-              >
-              </Link>
             </div>
+          </div>
+
+          {/* Map */}
+          <div>
+            <h4 className="font-semibold mb-4 text-white">Find Us</h4>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3959.3545698058147!2d79.88777097499803!3d7.084830692918141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMDUnMDUuNCJOIDc5wrA1MycyNS4zIkU!5e0!3m2!1sen!2slk!4v1779010159934!5m2!1sen!2slk"
+              width="100%"
+              height="150"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-lg"
+            />
           </div>
         </div>
 
