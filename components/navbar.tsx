@@ -36,7 +36,7 @@ export default function Navbar() {
               className="h-10 w-auto"
             />
             <Image
-              src="/LOGO.jpeg"
+              src="/LOGOS.png"
               alt="Hima Products icon"
               width={40}
               height={40}

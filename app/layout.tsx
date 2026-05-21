@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Leading distributor and manufacturer of quality animal feeder equipment. Trusted solutions for poultry, livestock, and automatic feeding systems.",
   icons:{
-    icon: "./LOGO.jpeg"
+    icon: "./LOGOS.png"
   },
     generator: "v0.app",
 }
