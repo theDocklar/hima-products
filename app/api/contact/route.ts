@@ -2,15 +2,21 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const RECIPIENTS = [
-  "Info@himaproductsceylon.com",
-  "Purchasing@himaproductsceylon.com",
+  "sinethma39@gmail.com",
+  "tharindumishen@gmail.com",
+  "it23229020@my.sliit.lk",
+  // "Info@himaproductsceylon.com",
+  // "Purchasing@himaproductsceylon.com",
 ];
 
 export async function POST(req: NextRequest) {
   const { name, email, message } = await req.json();
 
   if (!name || !email || !message) {
-    return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Missing required fields." },
+      { status: 400 },
+    );
   }
 
   const transporter = nodemailer.createTransport({
@@ -61,6 +67,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email send error:", error);
-    return NextResponse.json({ error: "Failed to send email." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to send email." },
+      { status: 500 },
+    );
   }
 }
