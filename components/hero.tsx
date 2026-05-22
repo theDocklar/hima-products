@@ -7,17 +7,17 @@ import Link from "next/link";
 
 const heroImages = [
   {
-    url: "/BUILDING.jpeg",
-    alt: "Hima Building",
-  },
-  {
-    url: "/poultry-feeder-equipment.jpg",
-    alt: "Poultry feeder equipment",
+    url: "/hero-logo.png",
+    alt: "Company logo",
   },
   {
     url: "/livestock-feeding-system.jpg",
     alt: "Livestock feeding system",
   },
+  // {
+  //   url: "/BUILDING.jpeg",
+  //   alt: "Hima Building",
+  // },
 ];
 
 export default function Hero() {

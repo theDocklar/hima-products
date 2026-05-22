@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Linkedin, PhoneCall, MessageCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Linkedin,
+  PhoneCall,
+  MessageCircle,
+} from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -62,13 +71,17 @@ export default function Footer() {
                 <PhoneCall size={16} />
                 <span>+94 11 303 8425</span> <br />
               </li>
-              <li className="flex items-center gap-2 text-gray-300">
-                <Phone size={16} />
-                <span>+94 70 320 3035</span> <br />
-                <span>+94 77 125 5820</span>
+              <li className="flex items-start gap-2 text-gray-300">
+                <Phone size={16} className="mt-1 flex-shrink-0" />
+
+                <div className="flex flex-col">
+                  <span>+94 70 320 3035</span>
+                  <span>+94 77 125 5820</span>
+                </div>
               </li>
               <li className="flex items-center gap-2 text-gray-300">
-                <MessageCircle size={16} className="text-green-400 flex-shrink-0" />
+                <FaWhatsapp className="text-green-400 text-lg flex-shrink-0" />
+
                 <a
                   href="https://wa.me/94712460500"
                   target="_blank"
@@ -88,8 +101,9 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <MapPin size={16} />
-                <span>No: 314, Negombo Road, <br /> Thudella, Ja-ela.</span>
-                
+                <span>
+                  No: 314, Negombo Road, <br /> Thudella, Ja-ela.
+                </span>
               </li>
             </ul>
           </div>
