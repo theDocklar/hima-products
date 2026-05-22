@@ -61,20 +61,28 @@ export default function ContactForm() {
       return;
     }
 
-    // Simulate form submission
     setIsSubmitting(true);
 
-    // In production, you would send this to your backend/API
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
       setIsSubmitted(true);
       setFormData({ name: "", email: "", message: "" });
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    }, 1500);
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch {
+      setErrors((prev) => ({
+        ...prev,
+        message: "Something went wrong. Please try again or contact us directly.",
+      }));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
