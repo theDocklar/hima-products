@@ -14,10 +14,10 @@ const heroImages = [
     url: "/livestock-feeding-system.jpg",
     alt: "Livestock feeding system",
   },
-  // {
-  //   url: "/BUILDING.jpeg",
-  //   alt: "Hima Building",
-  // },
+  {
+    url: "/hero-image.jpeg",
+    alt: "Hima Logo",
+  },
 ];
 
 export default function Hero() {
