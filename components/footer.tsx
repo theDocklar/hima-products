@@ -77,6 +77,7 @@ export default function Footer() {
                 <div className="flex flex-col">
                   <span>+94 70 320 3035</span>
                   <span>+94 77 125 5820</span>
+                  <span>+94 71 254 0500</span>
                 </div>
               </li>
               <li className="flex items-center gap-2 text-gray-300">
