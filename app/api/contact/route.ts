@@ -67,6 +67,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email send error:", error);
+    // For testing .env configuration on live
+    console.error("SMTP config:", { host: process.env.SMTP_HOST, port: process.env.SMTP_PORT, user: process.env.SMTP_USER });
     return NextResponse.json(
       { error: "Failed to send email." },
       { status: 500 },
