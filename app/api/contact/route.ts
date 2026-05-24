@@ -2,11 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const RECIPIENTS = [
-  "sinethma39@gmail.com",
-  "tharindumishen@gmail.com",
-  "it23229020@my.sliit.lk",
-  // "Info@himaproductsceylon.com",
-  // "Purchasing@himaproductsceylon.com",
+   "info@himaproductsceylon.com",
+   "purchasing@himaproductsceylon.com",
 ];
 
 export async function POST(req: NextRequest) {
