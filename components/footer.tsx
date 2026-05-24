@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
           {/* Company */}
           <div>
-            <h3 className="font-bold text-xl mb-4 text-white">Hima Products</h3>
+            <h3 className="font-bold text-xl mb-4 text-white">Hima Products Pvt Ltd</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Leading distributor and manufacturer of quality animal feeder
               equipment since 2016.
@@ -164,7 +164,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-8">
           <p className="text-center text-gray-300 text-sm">
-            © 2025 Hima Products. All rights reserved. | Quality Animal Feeder
+            © 2025 Hima Products Pvt Ltd. All rights reserved. | Quality Animal Feeder
             Equipment
           </p>
         </div>
