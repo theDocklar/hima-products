@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="bg-foreground text-foreground-foreground bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
           {/* Company */}
           <div>
             <h3 className="font-bold text-xl mb-4 text-white">Hima Products</h3>
@@ -64,20 +64,37 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
+          {/* Contact Info */}
+          <div className="lg:col-span-2">
             <h4 className="font-semibold mb-4 text-white">Contact Info</h4>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2 text-gray-300">
-                <PhoneCall size={16} />
-                <span>+94 11 303 8425</span> <br />
+              <li className="flex flex-col gap-1 text-gray-300">
+                <div className="flex items-center gap-2">
+                  <PhoneCall size={16} />
+                  <span>General</span>
+                </div>
+
+                <span className="ml-6">+94 11 303 8425</span>
+                <span className="ml-6">+94 77 125 5820</span>
               </li>
               <li className="flex items-start gap-2 text-gray-300">
                 <Phone size={16} className="mt-1 flex-shrink-0" />
 
-                <div className="flex flex-col">
-                  <span>+94 70 320 3035</span>
-                  <span>+94 77 125 5820</span>
-                  <span>+94 71 254 0500</span>
+                <div className="flex flex-col gap-1">
+                  <div className="flex gap-2 whitespace-nowrap">
+                    <span>+94 70 320 3035</span>
+                    <span>- Poultry Info</span>
+                  </div>
+
+                  <div className="flex gap-2 whitespace-nowrap">
+                    <span>+94 71 254 0500</span>
+                    <span>- Crate Info</span>
+                  </div>
+
+                  <div className="flex gap-2 whitespace-nowrap">
+                    <span>+94 70 320 3033</span>
+                    <span>- Dog Belt Info</span>
+                  </div>
                 </div>
               </li>
               <li className="flex items-center gap-2 text-gray-300">
